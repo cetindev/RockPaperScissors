@@ -61,7 +61,7 @@ background-color: honeydew;
   /* border-radius: 25px; */
   border: 2px dotted #AFC2D5;
 }
-@keyframes completerotate {
+/* @keyframes completerotate {
   20% {
       transform: rotate(90deg);
   }
@@ -74,4 +74,17 @@ background-color: honeydew;
   100%{
       transform: rotate(360deg);
   }
+} */
+.middle {
+  text-align: center;
+  font-size: 18px;
+  line-height: 2rem;
+}
+#chosen {
+  font-size: 20px;
+}
+.result {
+  padding: 10px;
+  border: 10px;
+  font-size: 25px;
 }

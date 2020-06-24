@@ -1,65 +1,120 @@
-// function computerPlay() {
-//   var random = Math.random() * 3;
-//   let value;
-//   if (random == 0) {
-//     value = 'rock';
-//   }
-//   if (random == 1) {
-//     value = 'paper';
-//   }
-//   if (random == 2) {
-//     value = 'scissors';
-//   }
-//   return value;
-// }
+const computerchoices = ["rock", "paper", "makas"];
+function check(playerchoice, computerchoice) {
+  if (playerchoice == "rock") {
+    switch (computerchoice) {
+      case "rock":
+        return "Tie";
+      case "paper":
+        return "Loss";
+      case "makas":
+        return "Win";
+    }
+  }
+  if (playerchoice == "paper") {
+    switch (computerchoice) {
+      case "rock":
+        return "Win";
+      case "paper":
+        return "Tie";
+      case "makas":
+        return "Loss";
+    }
+  }
+  if (playerchoice == "makas") {
+    switch (computerchoice) {
+      case "rock":
+        return "Loss";
+      case "paper":
+        return "Win";
+      case "makas":
+        return "Tie";
+    }
+  }
+}
+function computerPlay() {
+  // pick a random number between 0 and 2 inclusive
+  computerchoice = Math.floor(Math.random() * (choices.length));
+  return computerchoices[computerchoice];
+}
 
-// function playRound(playerSelection, computerSelection) {
-//   if (playerSelection == 'rock' && computerSelection == 'scissors') {
-//     return "You Win! The Stone Scissors Breaks";
-//   }
-//   else if (playerSelection == 'rock' && computerSelection == 'paper') {
-//     return "You Lose! The Stone Scissors Wraps";
-//   }
-//   else if (playerSelection == 'rock' && computerSelection == 'rock') {
-//     return "Tie! Rock is Rock";
-//   }
-//   else if (playerSelection == 'paper' && computerSelection == 'scissors') {
-//     return "You Lose! The paper is cut by scissors.";
-//   }
-//   else if (playerSelection == 'paper' && computerSelection == 'rock') {
-//     return "You Win! The paper wraps the stone.";
-//   }
-//   else if (playerSelection == 'paper' && computerSelection == 'paper') {
-//     return "Tie! Paper is Paper";
-//   }
-//   else if (playerSelection == 'scissors' && computerSelection == 'rock') {
-//     return "You Lose! Scissors are broken by the stone.";
-//   }
-//   else if (playerSelection == 'scissors' && computerSelection == 'paper') {
-//     return "You Win! Scissors cut the paper.";
-//   }
-//   else if (playerSelection == 'scissors' && computerSelection == 'scissors') {
-//     return "Tie! Scissors is Scissors";
-//   }
-//   else {
-//     return "Incorrect entry";
-//   }
-// }
-// function game() {
-//   // let computerPoint;
-//   // let playerPoint;
+// wins and losses
+let wins = 0;
+let loss = 0;
+const body = document.querySelector("body");
+const choices = document.querySelectorAll(".choice");
+ch = Array.from(choices); // create an array out of all the nodes;
 
-//   let computerChoice = computerPlay();
-//   for (let i = 0; i < 5; i++) {
-//     const playerSelection = window.prompt('"rock" mı "paper" mı "scissors" mı');
-//     playRound(playerSelection, computerChoice);
-//   }
+const comScore = document.querySelector("#cScore");
+const pScore = document.querySelector("#pScore");
 
-// }
-// const playerSelection = window.prompt('"rock" mı "paper" mı "scissors" mı');
+let chosen = ""; // variable to store the current selection
+choices.forEach((choices) => {
+  choices.addEventListener("click", (e) => {
+    chosen = e.path[0].id;
+    computer = computerPlay();
+    const result = document.querySelector("#chosen");
+    if (result.childNodes.length >= 1) {
+      result.innerHTML = "";
+    }
+    const resultdiv = document.createElement("div");
+    const displayChosen = document.createElement("p");
 
+    displayChosen.classList.add("middle");
+    displayChosen.innerHTML = `<i>Siz</i> ${chosen}! seçtiniz <br> <i>Bilgisayar</i> ${computer} seçti`;
+    result.appendChild(displayChosen);
+    checking = check(chosen, computer);
+    if (checking === "Loss") {
+      loss++;
+      if (document.querySelector(".result") !== null) {
+        document.querySelector(".result").remove();
+      }
+      content = `${computer.toUpperCase()} ${chosen.toUpperCase()}'ı Alır! <br> Kaybettiniz!`;
+      resultdiv.innerHTML = content;
+      resultdiv.classList.add("result");
+      body.appendChild(resultdiv);
+      comScore.innerHTML = loss;
+    }
+    else if (checking === "Win") {
+      wins++;
+      if (document.querySelector(".result") !== null) {
+        document.querySelector(".result").remove();
+      }
+      content = `${chosen.toUpperCase()} ${computer.toUpperCase()}'ı  Alır! <br> Kazandınız!`;
+      resultdiv.innerHTML = content;
+      resultdiv.classList.add("result");
+      body.appendChild(resultdiv);
+      pScore.innerHTML = wins;
+    }
+    else {
+      if (document.querySelector(".result") !== null) {
+        document.querySelector(".result").remove();
+      }
+      content = "Berabere!";
+      resultdiv.innerHTML = content;
+      resultdiv.classList.add("result");
+      body.appendChild(resultdiv);
+    }
+    if (wins === 5) {
+      alert("Tebrikler Kazandınız!")
+      ch.forEach(function (ch) {
+        ch.disabled = true;
+      })
 
-
-// // const playerSelection = 'rock';
-// const computerSelection = computerPlay();
-// console.log(playRound(playerSelection, computerSelection));
+    }
+    else if (loss === 5) {
+      alert("Puuuhh, Kaybettiniz!");
+      ch.forEach(function (ch) {
+        ch.disabled = true;
+      })
+    }
+  })
+})
+function newgame(e) {
+  ch.forEach(function (ch) {
+    ch.disabled = false; // go through every button with class of choice and enable them
+  })
+  wins = 0; // reset win count
+  loss = 0; // reset loss count
+  pScore.innerHTML = wins;
+  comScore.innerHTML = loss;
+}

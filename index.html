@@ -4,8 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rock Paper Scissors</title>
-  <script type="text/javascript" src="js/script.js"></script>
+  <title>Taş Kağıt Makas</title>
   <link rel="stylesheet" href="styles/normalize.css">
   <link rel="stylesheet" href="styles/main.css">
 </head>
@@ -13,23 +12,23 @@
 <body>
   <div id="start">
     <header class="header">
-      <h1><b>Rock ,Paper ,Scissors</b></h1>
+      <h1><b>Taş ,Kağıt ,Makas</b></h1>
     </header>
-    <button class="ngame">New Game</button>
+    <button onclick="newgame()" class="ngame">Yeni Oyun</button>
   </div>
   <div class="score">
-    <div class="distance">Wins: <span id="pScore">0</span></div>
+    <div class="distance">Kazanma: <span id="pScore">0</span></div>
     <div class="distance">vs</div>
-    <div class="distance">Losses: <span id="cScore">0</span></div>
+    <div class="distance">Kaybetme: <span id="cScore">0</span></div>
   </div><br>
   <div id="choices">
-    <button class="choice" id="rock">Rock</button>
-    <button class="choice" id="paper">Paper</button>
-    <button class="choice" id="scissors">Scissor</button>
+    <button class="choice" id="rock">Taş</button>
+    <button class="choice" id="paper">Kağıt</button>
+    <button class="choice" id="scissors">Makas</button>
   </div>
   <div id="chosen"></div>
-
-
+  <!-- Script -->
+  <script type="text/javascript" src="js/script.js"></script>
 </body>
 
 </html>

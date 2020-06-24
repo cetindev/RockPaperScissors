@@ -38,7 +38,9 @@ body {
   font-size: 40px;
   border-radius: 100px;
   border: 1px solid black;
-
+}
+.score:hover{
+  font-size:50px;
 }
 #choices {
  display: flex;
@@ -48,6 +50,9 @@ body {
 border: 1px solid black;
 background-color: honeydew; 
 }
+.choice:hover {
+  transform: scale(1.3);
+}
 #choices button {
   margin: 0px 20px;
   font-size: 45px;
@@ -55,4 +60,18 @@ background-color: honeydew;
   background-color: blanchedalmond;
   /* border-radius: 25px; */
   border: 2px dotted #AFC2D5;
+}
+@keyframes completerotate {
+  20% {
+      transform: rotate(90deg);
+  }
+  50% {
+      transform: rotate(180deg);
+  }
+  70% {
+      transform: rotate(270deg);
+  }
+  100%{
+      transform: rotate(360deg);
+  }
 }

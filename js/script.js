@@ -36,7 +36,6 @@ function computerPlay() {
   computerchoice = Math.floor(Math.random() * (choices.length));
   return computerchoices[computerchoice];
 }
-
 // wins and losses
 let wins = 0;
 let loss = 0;

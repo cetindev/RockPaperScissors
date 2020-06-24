@@ -11,9 +11,25 @@
 </head>
 
 <body>
-<header class="header">
-  <b>Rock ,Paperi ,Scissors</b>
-</header>
+  <div id="start">
+    <header class="header">
+      <h1><b>Rock ,Paper ,Scissors</b></h1>
+    </header>
+    <button class="ngame">New Game</button>
+  </div>
+<div class="score">
+  <div class="distance">Wins: <span id="pScore">0</span></div>
+  <div class="distance">vs</div>
+  <div class="distance">Losses: <span id="cScore">0</span></div>
+</div><br>
+<div id="choices">
+  <button class="choice" id="rock" >Rock</button>
+  <button class="choice" id="paper" >Paper</button>
+  <button class="choice" id="scissors" >Scissor</button>
+</div>
+<div id="chosen"></div>
+
+
 </body>
 
 </html>

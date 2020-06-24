@@ -1,4 +1,4 @@
-const computerchoices = ["rock", "paper", "makas"];
+const computerchoices = ["rock", "paper", "scissors"];
 function check(playerchoice, computerchoice) {
   if (playerchoice == "rock") {
     switch (computerchoice) {
@@ -6,7 +6,7 @@ function check(playerchoice, computerchoice) {
         return "Tie";
       case "paper":
         return "Loss";
-      case "makas":
+      case "scissors":
         return "Win";
     }
   }
@@ -16,17 +16,17 @@ function check(playerchoice, computerchoice) {
         return "Win";
       case "paper":
         return "Tie";
-      case "makas":
+      case "scissors":
         return "Loss";
     }
   }
-  if (playerchoice == "makas") {
+  if (playerchoice == "scissors") {
     switch (computerchoice) {
       case "rock":
         return "Loss";
       case "paper":
         return "Win";
-      case "makas":
+      case "scissors":
         return "Tie";
     }
   }

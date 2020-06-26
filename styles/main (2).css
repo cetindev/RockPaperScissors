@@ -1,0 +1,90 @@
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif;
+  font-size: 1rem;
+  text-align: center;
+  color: #333;
+  margin: 0;
+}
+.header {
+  /* height: 10vh; */
+  padding: 0.5em 0px;
+  font-family: 'Montserrat', sans-serif;
+  background-color: bisque;
+  display: flex;
+  position: flex;
+  justify-content: center;
+  font-size: 2em;
+}
+.ngame {
+  border: 2px dotted darkcyan;
+  font-size: 40px;
+  padding: 15px;
+  margin: 20px;
+  color: darkred;
+  /* border-radius: 25px; */
+}
+.ngame:hover {
+  transform: scale(1.3);
+  animation-name: completerotate;
+  animation-duration: 1.7s;
+  animation-iteration-count: infinite;
+}
+.score {
+  display: flex;
+  justify-content: space-evenly;
+  background-color: aliceblue;
+  margin: 10px;
+  padding: 20px;
+  font-size: 40px;
+  border-radius: 100px;
+  border: 1px solid black;
+}
+.score:hover{
+  font-size:50px;
+}
+#choices {
+ display: flex;
+ justify-content: center;
+ padding: 10px;
+ border-radius: 100px;
+border: 1px solid black;
+background-color: honeydew; 
+}
+.choice:hover {
+  transform: scale(1.3);
+}
+#choices button {
+  margin: 0px 20px;
+  font-size: 45px;
+  color: #AF3454;  
+  background-color: blanchedalmond;
+  /* border-radius: 25px; */
+  border: 2px dotted #AFC2D5;
+}
+/* @keyframes completerotate {
+  20% {
+      transform: rotate(90deg);
+  }
+  50% {
+      transform: rotate(180deg);
+  }
+  70% {
+      transform: rotate(270deg);
+  }
+  100%{
+      transform: rotate(360deg);
+  }
+} */
+.middle {
+  text-align: center;
+  font-size: 18px;
+  line-height: 2rem;
+}
+#chosen {
+  font-size: 20px;
+}
+.result {
+  padding: 10px;
+  border: 10px;
+  font-size: 25px;
+}
